@@ -5,32 +5,21 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ServicePointCart\Business;
+namespace Spryker\Zed\ServicePointCart\Communication\Plugin\Checkout;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\QuoteResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Zed\CheckoutExtension\Dependency\Plugin\CheckoutPreConditionPluginInterface;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
-interface ServicePointCartFacadeInterface
+/**
+ * @method \Spryker\Zed\ServicePointCart\Business\ServicePointCartFacadeInterface getFacade()
+ * @method \Spryker\Zed\ServicePointCart\ServicePointCartConfig getConfig()
+ */
+class ServicePointCheckoutPreConditionPlugin extends AbstractPlugin implements CheckoutPreConditionPluginInterface
 {
     /**
-     * Specification:
-     * - Executes {@link \Spryker\Zed\ServicePointCartExtension\Dependency\Plugin\ServicePointQuoteItemReplaceStrategyPluginInterface} strategy plugins.
-     * - Replaces quote items using applicable strategy.
-     * - Reloads cart items if the execution of strategy plugins was successful.
-     * - Returns `QuoteResponseTransfer.quoteTransfer.items` with replaced items.
-     * - Returns `QuoteResponseTransfer.quoteTransfer.isSuccessful` false if any of the applied strategies fails.
-     *
-     * @api
-     *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
-    public function replaceQuoteItems(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
-
-    /**
-     * Specification:
+     * {@inheritDoc}
      * - Expects `QuoteTransfer.items.servicePoint` to be provided.
      * - Requires `QuoteTransfer.store.name` and `QuoteTransfer.items.servicePoint.uuid` to be provided if `QuoteTransfer.items.servicePoint` is provided.
      * - Checks if `QuoteTransfer.items.servicePoint` are active and available for the current store.
@@ -46,5 +35,10 @@ interface ServicePointCartFacadeInterface
      *
      * @return bool
      */
-    public function validateCheckoutQuoteItems(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool;
+    public function checkCondition(
+        QuoteTransfer $quoteTransfer,
+        CheckoutResponseTransfer $checkoutResponseTransfer
+    ): bool {
+        return $this->getFacade()->validateCheckoutQuoteItems($quoteTransfer, $checkoutResponseTransfer);
+    }
 }
