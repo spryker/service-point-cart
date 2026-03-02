@@ -21,9 +21,6 @@ use Spryker\Zed\ServicePointCart\ServicePointCartDependencyProvider;
  */
 class ServicePointCartBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ServicePointCart\Business\Replacer\QuoteItemReplacerInterface
-     */
     public function createQuoteItemReplacer(): QuoteItemReplacerInterface
     {
         return new QuoteItemReplacer(
@@ -32,9 +29,6 @@ class ServicePointCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ServicePointCart\Business\Validator\QuoteItemServicePointValidatorInterface
-     */
     public function createQuoteItemServicePointValidator(): QuoteItemServicePointValidatorInterface
     {
         return new QuoteItemServicePointValidator(
@@ -42,17 +36,11 @@ class ServicePointCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ServicePointCart\Dependency\Facade\ServicePointCartToCartFacadeInterface
-     */
     public function getCartFacade(): ServicePointCartToCartFacadeInterface
     {
         return $this->getProvidedDependency(ServicePointCartDependencyProvider::FACADE_CART);
     }
 
-    /**
-     * @return \Spryker\Zed\ServicePointCart\Dependency\Facade\ServicePointCartToServicePointFacadeInterface
-     */
     public function getServicePointFacade(): ServicePointCartToServicePointFacadeInterface
     {
         return $this->getProvidedDependency(ServicePointCartDependencyProvider::FACADE_SERVICE_POINT);

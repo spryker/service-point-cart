@@ -58,11 +58,6 @@ class ServicePointCartBusinessTester extends Actor
      */
     protected const GLOSSARY_KEY_PARAMETER_STORE_NAME = '%store_name%';
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\StoreRelationTransfer
-     */
     public function createStoreRelationTransfer(StoreTransfer $storeTransfer): StoreRelationTransfer
     {
         return (new StoreRelationBuilder([
@@ -73,13 +68,6 @@ class ServicePointCartBusinessTester extends Actor
         ]))->build();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer $checkoutErrorTransfer
-     * @param string $servicePointUuid
-     * @param string $storeName
-     *
-     * @return void
-     */
     public function assertCheckoutErrorTransfer(
         CheckoutErrorTransfer $checkoutErrorTransfer,
         string $servicePointUuid,

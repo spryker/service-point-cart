@@ -34,9 +34,6 @@ class ReplaceQuoteItemsTest extends Unit
      */
     protected ServicePointCartBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExecutesApplicableStrategyPlugin(): void
     {
         // Arrange
@@ -54,9 +51,6 @@ class ReplaceQuoteItemsTest extends Unit
         $this->tester->getFacade()->replaceQuoteItems(new QuoteTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testSkipsNonApplicableStrategyPlugins(): void
     {
         $quoteResponseTransfer = (new QuoteResponseTransfer())->setQuoteTransfer(new QuoteTransfer());
@@ -73,9 +67,6 @@ class ReplaceQuoteItemsTest extends Unit
         $this->tester->getFacade()->replaceQuoteItems(new QuoteTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnReloadedQuoteIfCartReloadItemsInQuoteIsSuccess(): void
     {
         // Arrange
@@ -97,9 +88,6 @@ class ReplaceQuoteItemsTest extends Unit
         $this->assertNotSame($quoteTransfer->getNameOrFail(), $quoteReplacementResponseTransfer->getQuoteOrFail()->getNameOrFail());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnOriginalQuoteIfCartReloadItemsInQuoteFails(): void
     {
         // Arrange
@@ -122,12 +110,6 @@ class ReplaceQuoteItemsTest extends Unit
         $this->assertSame($quoteTransfer->getNameOrFail(), $quoteReplacementResponseTransfer->getQuoteOrFail()->getNameOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param bool $isApplicable
-     *
-     * @return \Spryker\Zed\ServicePointCartExtension\Dependency\Plugin\ServicePointQuoteItemReplaceStrategyPluginInterface
-     */
     protected function createServicePointQuoteItemReplaceStrategyPluginMock(
         QuoteTransfer $quoteTransfer,
         bool $isApplicable = true
@@ -153,12 +135,6 @@ class ReplaceQuoteItemsTest extends Unit
         return $servicePointQuoteItemReplaceStrategyPluginMock;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param bool $shouldFail
-     *
-     * @return \Spryker\Zed\ServicePointCart\Dependency\Facade\ServicePointCartToCartFacadeInterface
-     */
     protected function createCartFacadeMock(QuoteTransfer $quoteTransfer, bool $shouldFail): ServicePointCartToCartFacadeInterface
     {
         $cartFacadeMock = $this->getMockBuilder(ServicePointCartToCartFacadeInterface::class)

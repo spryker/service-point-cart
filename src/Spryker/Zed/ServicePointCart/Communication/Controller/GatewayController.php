@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteReplacementResponseTransfer
-     */
     public function replaceQuoteItemsAction(QuoteTransfer $quoteTransfer): QuoteReplacementResponseTransfer
     {
         return $this->getFacade()->replaceQuoteItems($quoteTransfer);

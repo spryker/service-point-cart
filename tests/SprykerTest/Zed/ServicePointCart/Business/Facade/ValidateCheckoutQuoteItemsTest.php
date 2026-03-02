@@ -35,9 +35,6 @@ class ValidateCheckoutQuoteItemsTest extends Unit
      */
     protected ServicePointCartBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testReturnsTrueIfNoOneOfQuoteItemsHaveServicePoints(): void
     {
         // Arrange
@@ -52,9 +49,6 @@ class ValidateCheckoutQuoteItemsTest extends Unit
         $this->assertEmpty($checkoutResponseTransfer->getErrors()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsTrueIfAllQuoteItemsHaveServicePointsThatAreActiveAndAvailableForCurrentStore(): void
     {
         // Arrange
@@ -92,9 +86,6 @@ class ValidateCheckoutQuoteItemsTest extends Unit
         $this->assertEmpty($checkoutResponseTransfer->getErrors()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsFalseIfQuoteItemHasServicePointThatIsNotActive(): void
     {
         // Arrange
@@ -138,9 +129,6 @@ class ValidateCheckoutQuoteItemsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsFalseIfQuoteItemsHaveServicePointThatIsNotAvailableForCurrentStore(): void
     {
         // Arrange
@@ -186,9 +174,6 @@ class ValidateCheckoutQuoteItemsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsFalseIfServicePointProvidedInQuoteItemDoesNotExist(): void
     {
         // Arrange

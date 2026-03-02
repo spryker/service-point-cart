@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface ServicePointCartStubInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteReplacementResponseTransfer
-     */
     public function replaceQuoteItems(QuoteTransfer $quoteTransfer): QuoteReplacementResponseTransfer;
 }

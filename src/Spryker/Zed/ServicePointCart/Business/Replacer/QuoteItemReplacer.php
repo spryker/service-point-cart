@@ -35,11 +35,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         $this->servicePointQuoteItemReplaceStrategyPlugins = $servicePointQuoteItemReplaceStrategyPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteReplacementResponseTransfer
-     */
     public function replaceQuoteItems(QuoteTransfer $quoteTransfer): QuoteReplacementResponseTransfer
     {
         $quoteReplacementResponseTransfer = $this->executeReplaceStrategyPlugin($quoteTransfer);
@@ -53,11 +48,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         return $quoteReplacementResponseTransfer->setQuote($quoteResponseTransfer->getQuoteTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteReplacementResponseTransfer
-     */
     protected function executeReplaceStrategyPlugin(QuoteTransfer $quoteTransfer): QuoteReplacementResponseTransfer
     {
         $quoteReplacementResponseTransfer = (new QuoteReplacementResponseTransfer())

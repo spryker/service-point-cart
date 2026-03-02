@@ -31,9 +31,6 @@ class ServicePointCartClientTest extends Unit
      */
     protected ServicePointCartClientTester $tester;
 
-    /**
-     * @return void
-     */
     public function testReplaceQuoteItemsWithStrategyReturnsSameQuote(): void
     {
         // Arrange
@@ -51,11 +48,6 @@ class ServicePointCartClientTest extends Unit
         $this->assertSame($quoteTransfer, $quoteReplacementResponseTransfer->getQuote());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteReplacementResponseTransfer $quoteReplacementResponseTransfer
-     *
-     * @return \Spryker\Client\ServicePointCart\Dependency\Client\ServicePointCartToZedRequestClientInterface
-     */
     protected function createZedRequestClientMock(
         QuoteReplacementResponseTransfer $quoteReplacementResponseTransfer
     ): ServicePointCartToZedRequestClientInterface {

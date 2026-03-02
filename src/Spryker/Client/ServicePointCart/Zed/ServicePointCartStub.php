@@ -18,9 +18,6 @@ class ServicePointCartStub implements ServicePointCartStubInterface
      */
     protected ServicePointCartToZedRequestClientInterface $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\ServicePointCart\Dependency\Client\ServicePointCartToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(ServicePointCartToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;

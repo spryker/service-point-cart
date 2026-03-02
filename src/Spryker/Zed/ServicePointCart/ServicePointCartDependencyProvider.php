@@ -32,11 +32,6 @@ class ServicePointCartDependencyProvider extends AbstractBundleDependencyProvide
      */
     public const PLUGINS_SERVICE_POINT_QUOTE_ITEM_REPLACE_STRATEGY = 'PLUGINS_SERVICE_POINT_QUOTE_ITEM_REPLACE_STRATEGY';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -48,11 +43,6 @@ class ServicePointCartDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCartFacade(Container $container): Container
     {
         $container->set(static::FACADE_CART, function (Container $container) {
@@ -62,11 +52,6 @@ class ServicePointCartDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addServicePointFacade(Container $container): Container
     {
         $container->set(static::FACADE_SERVICE_POINT, function (Container $container) {
@@ -76,11 +61,6 @@ class ServicePointCartDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addServicePointQuoteItemReplaceStrategyPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SERVICE_POINT_QUOTE_ITEM_REPLACE_STRATEGY, function () {

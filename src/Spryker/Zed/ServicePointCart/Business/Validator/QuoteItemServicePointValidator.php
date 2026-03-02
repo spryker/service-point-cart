@@ -38,20 +38,11 @@ class QuoteItemServicePointValidator implements QuoteItemServicePointValidatorIn
      */
     protected ServicePointCartToServicePointFacadeInterface $servicePointFacade;
 
-    /**
-     * @param \Spryker\Zed\ServicePointCart\Dependency\Facade\ServicePointCartToServicePointFacadeInterface $servicePointFacade
-     */
     public function __construct(ServicePointCartToServicePointFacadeInterface $servicePointFacade)
     {
         $this->servicePointFacade = $servicePointFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function validate(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         $quoteItemsServicePointUuids = $this->extractServicePointUuids($quoteTransfer->getItems());
@@ -125,12 +116,6 @@ class QuoteItemServicePointValidator implements QuoteItemServicePointValidatorIn
         }
     }
 
-    /**
-     * @param string $servicePointUuid
-     * @param string $storeName
-     *
-     * @return \Generated\Shared\Transfer\CheckoutErrorTransfer
-     */
     protected function createCheckoutErrorTransfer(string $servicePointUuid, string $storeName): CheckoutErrorTransfer
     {
         return (new CheckoutErrorTransfer())
